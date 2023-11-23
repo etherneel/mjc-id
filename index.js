@@ -20,6 +20,7 @@ const ContractAbiForBUSD = env.contract.busdAbi.abi;
 const ContractAddressForBUSD = env.globalAccess.busdContract;
 
 const PrivateKey = env.privateKey;
+const port = 3000;
 
 const web3 = new Web3(infraUrl);
 const app = express();
@@ -53,8 +54,8 @@ app.use('/wallet', require('./routes/wallet_address'));
 function isFloat(n) {
   return Number(n) == n && n % 1 !== 0;
 }
-const LOCALPORT = process.env.PORT || 8081;
 
-app.listen(LOCALPORT, () => {
-  console.log(`http://localhost:${LOCALPORT} is listening...`);
+
+app.listen(port, () => {
+  console.log(`${port} is listening...`);
 });
